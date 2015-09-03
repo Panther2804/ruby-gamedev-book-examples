@@ -1,7 +1,3 @@
-def media_path(file)
-  File.join(File.dirname(File.dirname(__FILE__)), 'media', file)
-end
-
 class GameWindow < Gosu::Window
 
   # BACKGROUND = media_path('country_field.png')
@@ -14,18 +10,7 @@ class GameWindow < Gosu::Window
 
     super pixel, pixel, fullscreen
 
-    self.caption = 'Test'
-
-    #@wall = Gosu::Image.from_text(self, '2', Gosu.default_font_name, TILESIZE)
-    wall_path = media_path('walls.png')
-    empty_path = media_path('nothing.png')
-    player_path = media_path('player.png')
-    @wall = Gosu::Image.new(self, wall_path, false)
-    @empty = Gosu::Image.new(self, empty_path, false)
-    @player = Gosu::Image.new(self, player_path, false)
-
-    #@empty = Gosu::Image.from_text(self, '.', Gosu.default_font_name, TILESIZE)
-    #@player = Gosu::Image.from_text(self, '1', Gosu.default_font_name, TILESIZE)
+    self.caption = "Paul's Dungeon"
 
     #@background = Gosu::Image.new(self, BACKGROUND, false)
     #@animation = Explosion.load_animation(self)
@@ -56,29 +41,13 @@ class GameWindow < Gosu::Window
   end
 
   def draw
-    0.upto(@dungeon.boardsize - 1) do |i|
-
-      0.upto(@dungeon.boardsize - 1) do |j|
-
-        ii = i * TILESIZE
-        jj = j * TILESIZE
-        field = @dungeon[i, j]
-
-        if field == '0'
-          @empty.draw(ii, jj, 0)
-        elsif field == '1'
-          @player.draw(ii, jj, 0)
-        elsif field == '2'
-          @wall.draw(ii, jj, 0)
-        end
-
-      end
-    end
+    @dungeon.draw
 
     #@scene_ready ||= true
     #@background.draw(0, 0, 0)
     #@explosions.map(&:d)
     #puts "draw"
+
   end
 
 end
