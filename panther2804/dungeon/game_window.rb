@@ -54,7 +54,7 @@ class GameWindow < Gosu::Window
     #!@scene_ready || @explosions.any?
     true
   end
-count = 1
+
   def draw
     0.upto(@dungeon.boardsize - 1) do |i|
 
@@ -62,12 +62,13 @@ count = 1
 
         ii = i * TILESIZE
         jj = j * TILESIZE
+        field = @dungeon[i, j]
 
-        if @dungeon[i, j] == 0
+        if field == '0'
           @empty.draw(ii, jj, 0)
-        elsif @dungeon[i, j] == 1
+        elsif field == '1'
           @player.draw(ii, jj, 0)
-        elsif @dungeon[i, j] == 2
+        elsif field == '2'
           @wall.draw(ii, jj, 0)
         end
 
@@ -79,4 +80,5 @@ count = 1
     #@explosions.map(&:d)
     #puts "draw"
   end
+
 end

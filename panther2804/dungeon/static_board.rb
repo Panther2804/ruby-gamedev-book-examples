@@ -6,14 +6,14 @@ class StaticBoard
     0.upto(boardsize) do |i|
       @a[i] = []
       0.upto(boardsize) do |j|
-        @a[i][j] = 0
+        @a[i][j] = '0'
       end
     end
     if generate_walls == true
       0.upto(count) do
         r = rand(boardsize)
         r2 = rand(boardsize)
-        @a[r][r2] = 2
+        @a[r][r2] = '2'
       end
     end
   end
@@ -23,14 +23,15 @@ class StaticBoard
   end
 
   def to_s
+    s = ''
     0.upto(@boardsize - 1) do |i|
-      s = ''
       0.upto(@boardsize - 1) do |j|
         s += self[i, j].to_s
         s += ' '
       end
-      puts s
+      s += "\n"
     end
+    s += "\n"
   end
 
   attr_reader :boardsize

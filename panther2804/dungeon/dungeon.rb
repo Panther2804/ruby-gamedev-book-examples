@@ -6,23 +6,26 @@ class Dungeon
   end
 
   def [] x, y
-    @elements.each { |e|
-      if e.x == x && e.y == y
-        return e
-      end
+    result = @elements.select { |e|
+      e.x == x && e.y == y
     }
-    @board[x, y]
+    if result.empty?
+      result = @board[x, y]
+    else
+      result = result[0].to_s
+    end
   end
 
   def to_s
+    s = ''
     0.upto(@board.boardsize - 1) do |i|
-      s = ''
       0.upto(@board.boardsize - 1) do |j|
         s += self[i, j].to_s
         s += ' '
       end
-      puts s
+      s += "\n"
     end
+    s += "\n"
   end
 
   def boardsize

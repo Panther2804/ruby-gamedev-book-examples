@@ -12,8 +12,9 @@ player = Player.new 5, 6
 
 dungeon = Dungeon.new board, [player]
 
-puts dungeon
+# puts dungeon
 
+=begin
 begin
   input = 'q'
   #input = gets.chomp
@@ -25,6 +26,7 @@ begin
   end
   puts dungeon
 end while input != 'q'
+=end
 
 window = GameWindow.new(dungeon)
 window.show
