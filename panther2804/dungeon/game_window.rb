@@ -4,8 +4,10 @@ class GameWindow < Gosu::Window
 
   TILESIZE = 50
 
-  def initialize(dungeon, fullscreen=false)
+  def initialize(dungeon, player, fullscreen=false)
     @dungeon = dungeon
+    @player = player
+    @buttons = []
     pixel = @dungeon.boardsize * TILESIZE
 
     super pixel, pixel, fullscreen
@@ -21,14 +23,36 @@ class GameWindow < Gosu::Window
     #@explosions.reject!(&:done?)
     #@explosions.map(&:update)
     #puts "update: #{needs_redraw?}"
+
+    #puts "#{@buttons}"
+    if @buttons.size > 0
+      case @buttons.first
+        when nil
+          # do nothing
+        when Gosu::KbUp
+          @player.up
+        when Gosu::KbDown
+          @player.down
+        when Gosu::KbLeft
+          @player.left
+        when Gosu::KbRight
+          @player.right
+      end
+    end
   end
 
   def button_down(id)
     close if id == Gosu::KbEscape
-    #if id == Gosu::MsLeft
-    #  @explosions.push(
-    #      Explosion.new(@animation, mouse_x, mouse_y))
-    #end
+    @buttons <<= id
+  end
+
+  def button_up(id)
+    if !@buttons.empty?
+      b = @buttons.first
+      if b == id || b == nil
+        @buttons.pop
+      end
+    end
   end
 
   def needs_cursor?

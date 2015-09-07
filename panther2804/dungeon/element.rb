@@ -12,6 +12,7 @@ class Element
     @needs_update = true
     @char = char
     @image = Gosu::Image.from_text(self, '?', Gosu.default_font_name, GameWindow::TILESIZE)
+    @static_board = nil
   end
 
   def to_s
@@ -33,5 +34,7 @@ class Element
   end
 
   attr_reader :x, :y
+
+  attr_accessor :static_board
 
 end

@@ -3,6 +3,10 @@ class Dungeon
   def initialize board, elements = []
     @board = board
     @elements = elements
+
+    @elements.each do |e|
+      e.static_board = board
+    end
   end
 
   def draw

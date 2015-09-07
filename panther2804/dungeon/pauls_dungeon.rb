@@ -28,5 +28,5 @@ begin
 end while input != 'q'
 =end
 
-window = GameWindow.new(dungeon)
+window = GameWindow.new(dungeon, player)
 window.show
