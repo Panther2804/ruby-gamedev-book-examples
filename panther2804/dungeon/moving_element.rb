@@ -1,9 +1,11 @@
 load 'element.rb'
+load 'display.rb'
 
 class MovingElement < Element
 
   def initialize x, y, char
     super
+    @display = Display.new
   end
 
   def right
@@ -11,6 +13,7 @@ class MovingElement < Element
     @x += 1
     if can_enter?
       @needs_update = true
+      @display.steps_update
     else
       @x = x
     end
@@ -21,6 +24,7 @@ class MovingElement < Element
     @x -= 1
     if can_enter?
       @needs_update = true
+      @display.steps_update
     else
       @x = x
     end
@@ -31,6 +35,7 @@ class MovingElement < Element
     @y -= 1
     if can_enter?
       @needs_update = true
+      @display.steps_update
     else
       @y = y
     end
@@ -41,6 +46,7 @@ class MovingElement < Element
     @y += 1
     if can_enter?
       @needs_update = true
+      @display.steps_update
     else
       @y = y
     end
@@ -50,5 +56,7 @@ class MovingElement < Element
     bs = @static_board.boardsize
     0 <= @x && @x < bs && 0 <= @y && @y < bs
   end
+
+  attr_reader :display
 
 end

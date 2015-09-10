@@ -3,6 +3,7 @@ class GameWindow < Gosu::Window
   # BACKGROUND = media_path('country_field.png')
 
   TILESIZE = 50
+  FRAME_DELAY = 100
 
   def initialize(dungeon, player, fullscreen=false)
     @dungeon = dungeon
@@ -13,6 +14,8 @@ class GameWindow < Gosu::Window
     super pixel, pixel, fullscreen
 
     self.caption = "Paul's Dungeon"
+
+    @time = Gosu.milliseconds
 
     #@background = Gosu::Image.new(self, BACKGROUND, false)
     #@animation = Explosion.load_animation(self)
@@ -25,18 +28,23 @@ class GameWindow < Gosu::Window
     #puts "update: #{needs_redraw?}"
 
     #puts "#{@buttons}"
-    if @buttons.size > 0
-      case @buttons.first
-        when nil
-          # do nothing
-        when Gosu::KbUp
-          @player.up
-        when Gosu::KbDown
-          @player.down
-        when Gosu::KbLeft
-          @player.left
-        when Gosu::KbRight
-          @player.right
+    now = Gosu.milliseconds
+    diff = now - @time
+    if diff > FRAME_DELAY
+      @time = now
+      if @buttons.size > 0
+        case @buttons.first
+          when nil
+            # do nothing
+          when Gosu::KbUp
+            @player.up
+          when Gosu::KbDown
+            @player.down
+          when Gosu::KbLeft
+            @player.left
+          when Gosu::KbRight
+            @player.right
+        end
       end
     end
   end
@@ -66,6 +74,7 @@ class GameWindow < Gosu::Window
 
   def draw
     @dungeon.draw
+    @player.display.draw
 
     #@scene_ready ||= true
     #@background.draw(0, 0, 0)
