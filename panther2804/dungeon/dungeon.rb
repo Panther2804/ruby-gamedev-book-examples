@@ -42,6 +42,11 @@ class Dungeon
     @board.boardsize
   end
 
+  def bomb x, y
+    puts "bomb at #{x}, #{y}"
+    @board.dropBomb x, y
+  end
+
   private
 
   def [] x, y
@@ -65,6 +70,5 @@ class Dungeon
       result = result[0]
     end
   end
-
 
 end

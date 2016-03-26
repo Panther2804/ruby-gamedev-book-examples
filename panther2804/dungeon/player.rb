@@ -1,4 +1,5 @@
 load 'moving_element.rb'
+load 'bomb.rb'
 
 class Player < MovingElement
 
@@ -12,6 +13,10 @@ class Player < MovingElement
   def can_enter?
     bound = super
     bound && @static_board[@x, @y] == '0'
+  end
+
+  def draw
+    @display.draw
   end
 
 end

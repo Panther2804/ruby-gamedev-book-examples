@@ -2,7 +2,7 @@ class GameWindow < Gosu::Window
 
   # BACKGROUND = media_path('country_field.png')
 
-  TILESIZE = 16
+  TILESIZE = 32
   FRAME_DELAY = 100
 
   def initialize(dungeon, player, fullscreen=false)
@@ -44,6 +44,8 @@ class GameWindow < Gosu::Window
             @player.left
           when Gosu::KbRight
             @player.right
+          when Gosu::KbB
+            @dungeon.bomb @player.x, @player.y
         end
       end
     end
@@ -74,7 +76,7 @@ class GameWindow < Gosu::Window
 
   def draw
     @dungeon.draw
-    @player.display.draw
+    @player.draw
 
     #@scene_ready ||= true
     #@background.draw(0, 0, 0)
