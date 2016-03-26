@@ -4,7 +4,7 @@ class StaticBoard
     File.join(File.dirname(File.dirname(__FILE__)), 'media', file)
   end
 
-  def initialize(count = 30, boardsize = 10, generate_walls = true)
+  def initialize(count = 30, boardsize = 15, generate_walls = true)
     @a = []
     @boardsize = boardsize
     0.upto(boardsize) do |i|
@@ -22,8 +22,8 @@ class StaticBoard
       end
     end
 
-    wall_path = StaticBoard.media_path('walls.png')
-    empty_path = StaticBoard.media_path('nothing.png')
+    wall_path = StaticBoard.media_path('wall_simple.png')
+    empty_path = StaticBoard.media_path('ground.png')
     @wall = Gosu::Image.new(wall_path)
     @empty = Gosu::Image.new(empty_path)
   end

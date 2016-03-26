@@ -2,44 +2,44 @@ GEM
   remote: https://rubygems.org/
   specs:
     diff-lcs (1.2.5)
-    gosu (0.9.2)
+    gosu (0.10.6)
+    gosu (0.10.6-x64-mingw32)
     gosu_texture_packer (0.1.6)
       gosu
       json
-      rmagick
     gosu_tiled (0.1.1)
       gosu
       json
     json (1.8.3)
     perlin_noise (0.1.2)
-    rake (10.4.2)
-    rmagick (2.15.4)
-    rspec (3.3.0)
-      rspec-core (~> 3.3.0)
-      rspec-expectations (~> 3.3.0)
-      rspec-mocks (~> 3.3.0)
-    rspec-core (3.3.2)
-      rspec-support (~> 3.3.0)
-    rspec-expectations (3.3.1)
+    rake (11.1.1)
+    rspec (3.4.0)
+      rspec-core (~> 3.4.0)
+      rspec-expectations (~> 3.4.0)
+      rspec-mocks (~> 3.4.0)
+    rspec-core (3.4.4)
+      rspec-support (~> 3.4.0)
+    rspec-expectations (3.4.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.3.0)
-    rspec-mocks (3.3.2)
+      rspec-support (~> 3.4.0)
+    rspec-mocks (3.4.1)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.3.0)
-    rspec-support (3.3.0)
-    ruby-prof (0.15.8)
+      rspec-support (~> 3.4.0)
+    rspec-support (3.4.1)
+    ruby-prof (0.15.9)
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
-  gosu (~> 0.9.2)
+  gosu (~> 0.10.6)
   gosu_texture_packer (~> 0.1.6)
   gosu_tiled (~> 0.1.1)
   perlin_noise (~> 0.1.2)
-  rake (~> 10.4.2)
-  rspec (~> 3.3.0)
+  rake (~> 11.1.1)
+  rspec (~> 3.4.0)
   ruby-prof (~> 0.15.8)
 
 BUNDLED WITH
-   1.10.6
+   1.11.2

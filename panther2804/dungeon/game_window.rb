@@ -2,7 +2,7 @@ class GameWindow < Gosu::Window
 
   # BACKGROUND = media_path('country_field.png')
 
-  TILESIZE = 50
+  TILESIZE = 16
   FRAME_DELAY = 100
 
   def initialize(dungeon, player, fullscreen=false)

@@ -5,7 +5,7 @@ class Player < MovingElement
   def initialize x, y
     super x, y, '1'
 
-    player_path = Element.media_path('player_small.png')
+    player_path = Element.media_path('player2.png')
     @image = Gosu::Image.new(player_path)
   end
 

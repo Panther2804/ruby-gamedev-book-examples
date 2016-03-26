@@ -14,8 +14,8 @@ class Display
 
   def draw
     @message = Gosu::Image.from_text(
-        self, info, Gosu.default_font_name, 30)
-    @message.draw(0, 0, 101, 1, 1, Gosu::Color::AQUA)
+        self, info, Gosu.default_font_name, 15)
+    @message.draw(0, 0, 101, 1, 1, Gosu::Color::BLACK)
   end
 
 end
